@@ -24,11 +24,5 @@ public class UserService implements IUserService{
 		dao.commitTransaction();
 		return id;
 	}
-	
-	public static void main(String[] args) {
-		IUserService service = new UserService();
-		
-		service.findByLoginAndPassword("root", "123456");
-	}
 
 }
