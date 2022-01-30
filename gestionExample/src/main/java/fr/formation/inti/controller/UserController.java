@@ -2,6 +2,7 @@ package fr.formation.inti.controller;
 
 import java.io.IOException;
 
+import javax.persistence.NoResultException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +33,7 @@ public class UserController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/login.jsp").forward(request, response);
 	}
 
 	/**
@@ -42,21 +43,26 @@ public class UserController extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		
-		User user = service.findByLoginAndPassword(login, password);
-		if(user != null) {
-			HttpSession session = request.getSession();
-			session.setMaxInactiveInterval(300); // 30 secondes avant d�connexion auto
-			session.setAttribute("user", user);
-		}
-		else
-		{
-			request.setAttribute("error", "login or password incorrect !");
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		User user = null ; 
+		// try/catch if entity is not found in db
+		try {
+			user = service.findByLoginAndPassword(login, password);
+		} catch(NoResultException nre) {
+			nre.printStackTrace();
+			request.setAttribute("errorMessage", "Error! login or password incorrect. ");
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
-			
-
+		if(user != null) {
+			HttpSession session = request.getSession();
+			session.setMaxInactiveInterval(300); 
+			session.setAttribute("user", user);
+		} else {
+			request.setAttribute("errorMessage", "Error! login or password incorrect!");
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
+		}
+		
+		request.getRequestDispatcher("/main.jsp").forward(request, response);
 			
 		
 	}
