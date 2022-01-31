@@ -30,7 +30,7 @@ public class Employee {
 	private Date startDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "dept_id", nullable = false)
+	@JoinColumn(name = "dept_id") // delete nullable = false for now
 	private Department department;
 
 	@ManyToOne
