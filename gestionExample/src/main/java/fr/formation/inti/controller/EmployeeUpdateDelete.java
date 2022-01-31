@@ -54,7 +54,7 @@ public class EmployeeUpdateDelete extends HttpServlet {
 		// edao.close();
 
 		request.setAttribute("msg", "Employee has been deleted!");
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+		request.getRequestDispatcher("/emp").forward(request, response);
 	}
 
 	/**
@@ -63,8 +63,6 @@ public class EmployeeUpdateDelete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		log.debug("doPost from EmployeeUpdateDelete Servlet");
 	
 		Integer empId = Integer.valueOf(request.getParameter("empId"));
 		String firstName = (String) request.getParameter("firstName");
@@ -79,9 +77,6 @@ public class EmployeeUpdateDelete extends HttpServlet {
 //			e.printStackTrace();
 //		}
 		
-		log.debug("------------------------------------");
-		
-		
 		edao.beginTransaction();
 		Employee e = edao.findById(empId);
 		e.setFirstName(firstName);
@@ -92,8 +87,10 @@ public class EmployeeUpdateDelete extends HttpServlet {
 		
 		// edao.close();
 		
+		
 		request.setAttribute("msg", "Employee has been updated!");
 		request.getRequestDispatcher("main.jsp").forward(request, response);
+		
 	}
 
 }

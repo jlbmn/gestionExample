@@ -39,9 +39,9 @@
 						class="dropdown-item" href="emp"> List of Employees </a>
 				</div></li>
 		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search"
-				placeholder="Search by last name" aria-label="Search">
+		<form class="form-inline my-2 my-lg-0" action="search" method="post">
+			<input class="form-control mr-sm-2" type="search" name="searchNames"
+				placeholder="Entier first name and last name" aria-label="Search">
 			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">
 				<i class="bi bi-search"></i>
 			</button>
@@ -56,6 +56,7 @@
 </nav>
 
 <div class="container-fluid">
+	<p class="text-primary mt-2">${msg } </p>
 	<c:if test="${not empty employees }">
 		<br>
 		<h3>List of Employees</h3>
@@ -93,7 +94,7 @@
 						<td>
 						<form action="updatedelete" method="get">
 							<input type="hidden" name="empId" value="${ emp.empId }"/>
-							<button type="submit">
+							<button type="submit" onclick="confirm('Do you really want to delete this employee ?');">
 								<i class="bi bi-trash"></i>
 							</button>
 						</form>
@@ -107,8 +108,6 @@
 
 		</table>
 	</c:if>
-	<br>
-	<p> ${msg } </p>
 </div>
 
 
