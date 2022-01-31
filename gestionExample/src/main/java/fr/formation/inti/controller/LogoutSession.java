@@ -27,9 +27,10 @@ public class LogoutSession extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.setAttribute("msg", "You have been successfully disconnected!");
 		session.invalidate();
 		
+		request.setAttribute("msg", "You have been successfully disconnected!");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**

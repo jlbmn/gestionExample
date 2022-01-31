@@ -41,7 +41,7 @@
 		</form>
 		<form action="logout" class="form-inline ml-3 my-3 my-lg-0">
 			<button class="btn btn-outline-light ml-4" type="submit">
-				<i class="bi bi-arrow-up-right-circle-fill"></i>
+				<i class="bi bi-box-arrow-right"></i>
 			</button>
 		</form>
 

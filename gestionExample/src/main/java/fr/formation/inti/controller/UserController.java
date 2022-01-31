@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	/**
@@ -59,10 +59,10 @@ public class UserController extends HttpServlet {
 			session.setAttribute("user", user);
 		} else {
 			request.setAttribute("errorMessage", "Error! login or password incorrect!");
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("/main.jsp").forward(request, response);
+		request.getRequestDispatcher("main.jsp").forward(request, response);
 			
 		
 	}
