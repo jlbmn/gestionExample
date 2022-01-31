@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Page</title>
+<title>Add Employee</title>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -20,7 +20,6 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<title>Home Page</title>
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

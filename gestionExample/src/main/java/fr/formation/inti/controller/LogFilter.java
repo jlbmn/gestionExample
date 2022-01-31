@@ -52,6 +52,10 @@ public class LogFilter implements Filter {
 		// TODO: resolve filter problem, should not authorize main.jsp without login
 		// TODO: problem with session ==> session is not null, but should be null
 		
+		if(uri.endsWith("css")) {
+			chain.doFilter(request, response);
+			return;
+		}
 		// Authorized : login.jsp, index.jsp, /login
 		if(session == null && !(uri.endsWith("login") || uri.endsWith("index.jsp") || uri.endsWith("login.jsp"))) {
 			this.context.log("Unauthorized access, URI : " +uri);
@@ -60,6 +64,7 @@ public class LogFilter implements Filter {
 		} else {
 			this.context.log("Authorized access, URI : " +uri);
 			chain.doFilter(request, response);
+			return;
 		}
 
 	}

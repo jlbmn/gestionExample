@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Page</title>
+<title>Update Employee</title>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -20,7 +20,6 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<title>Home Page</title>
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,7 +34,7 @@
 				id="navbarDropdownMenuLink" data-toggle="dropdown"
 				aria-haspopup="true" aria-expanded="false"> Manage Employees </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="form.jsp"> Add Employee </a> <a
+					<a class="dropdown-item" href="emp"> Add Employee </a> <a
 						class="dropdown-item" href="emp"> List of Employees </a>
 				</div></li>
 		</ul>
@@ -55,61 +54,30 @@
 	</div>
 </nav>
 
-<div class="container-fluid">
-	<c:if test="${not empty employees }">
-		<br>
-		<h3>List of Employees</h3>
-		<table class="table table-bordered text-center">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">Employee id</th>
-					<th scope="col">First name</th>
-					<th scope="col">Last name</th>
-					<th scope="col">Title</th> 
-					<th scope="col">Start date</th>
-					<th scope="col" colspan="2">Manage Employee</th>
-				</tr>
-			</thead>
-			<tbody>
 
-				<c:forEach items="${employees }" var="emp">
-					<tr>
-						<c:set var="emp" value="${emp }" />
-						<td>${emp.empId }</td>
-						<td>${emp.firstName }</td>
-						<td>${emp.lastName }</td>
-						<td>${emp.title }</td>
-						<td>${emp.startDate }</td>
-						
-						<td>
-						<form action="update" method="post">
-							<input type="hidden" name="empId" value="${ emp.empId }"/>
-							<button type="submit">
-								<i class="bi bi-pencil"></i>
-							</button>
-						</form>
-						</td>
-						
-						<td>
-						<form action="updatedelete" method="get">
-							<input type="hidden" name="empId" value="${ emp.empId }"/>
-							<button type="submit">
-								<i class="bi bi-trash"></i>
-							</button>
-						</form>
-							
-							
-						</td>
-					</tr>
+<div class="container mx-auto">
+         <div class="col-md-4">
+         	<h3>Update Employee id = ${emp.empId }</h3>
+				<form action="updatedelete" method="post">
+				<input type="hidden" name="empId" value="${ emp.empId }"/>
+					  <div class="form-group">
+					    <label for="firstName">First name</label>
+					    <input name="firstName" type="text" class="form-control" placeholder="Enter first name" value="${emp.firstName }">
+					  </div>
+					  <div class="form-group">
+					    <label for="lastName">Last name</label>
+					    <input name="lastName" type="text" class="form-control" placeholder="Enter last name" value="${emp.lastName }">
+					  </div>
+					  <div class="form-group">
+					    <label for="startDate">Start date</label>
+					    <input name="startDate" type="text" class="form-control" placeholder="Enter start date" value="${emp.startDate }">
+					  </div>
+					  <button type="submit" class="btn btn-black text-light">Submit</button>
+			
+				</form>
+	</div>
+	</div>
 
-				</c:forEach>
-			</tbody>
-
-		</table>
-	</c:if>
-	<br>
-	<p> ${msg } </p>
-</div>
 
 
 </body>

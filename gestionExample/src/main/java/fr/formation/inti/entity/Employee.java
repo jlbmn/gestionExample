@@ -21,11 +21,13 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "emp_id")
-	private int empId;
+	private Integer empId;
 	@Column(name = "first_name")
 	private String firstName;
 	@Column(name = "last_name")
 	private String lastName;
+	@Column(name="title")
+	private String title;
 	@Column(name = "start_date")
 	private Date startDate;
 	
@@ -102,11 +104,11 @@ public class Employee {
 		this.department = department;
 	}
 
-	public int getEmpId() {
+	public Integer getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(int empId) {
+	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
 
@@ -134,13 +136,21 @@ public class Employee {
 		this.startDate = strartDate;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", startDate="
 				+ startDate + "]";
 	}
 
-	public Employee(int empId, String firstName, String last_Name, Date strartDate) {
+	public Employee(Integer empId, String firstName, String last_Name, Date strartDate) {
 		super();
 		this.empId = empId;
 		this.firstName = firstName;

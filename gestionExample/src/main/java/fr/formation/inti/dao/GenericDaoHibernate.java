@@ -45,7 +45,10 @@ public class GenericDaoHibernate<T,I extends Serializable> implements IGenericDa
 	public void delete(I i) {
 		session.delete(i);
 	}
-
+	
+	public void remove(T t) {
+		session.remove(t);
+	}
 
 	public T findById(I i) {
 		return (T) session.get(this.type, i);
