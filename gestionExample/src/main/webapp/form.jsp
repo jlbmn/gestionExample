@@ -35,7 +35,7 @@
 				id="navbarDropdownMenuLink" data-toggle="dropdown"
 				aria-haspopup="true" aria-expanded="false"> Manage Employees </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="form.jsp"> Add Employee </a> <a
+					<a class="dropdown-item" href="emp"> Add Employee </a> <a
 						class="dropdown-item" href="emp"> List of Employees </a>
 				</div></li>
 		</ul>
@@ -55,41 +55,29 @@
 	</div>
 </nav>
 
-<div class="container-fluid">
-	<c:if test="${not empty employees }">
-		<br>
-		<h3>List of Employees</h3>
-		<table class="table table-bordered text-center">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">Employee id</th>
-					<th scope="col">First name</th>
-					<th scope="col">Last name</th>
-					<!-- <th scope="col">Title</th>  -->
-					<th scope="col">Start date</th>
-					<th scope="col" colspan="2">Manage Employee</th>
-				</tr>
-			</thead>
-			<tbody>
 
-				<c:forEach items="${employees }" var="emp">
-					<tr>
-						<td>${emp.empId }</td>
-						<td>${emp.firstName }</td>
-						<td>${emp.lastName }</td>
-						<td>${emp.startDate }</td>
-						<td><i class="bi bi-pencil"></i></td>
-						<td><i class="bi bi-trash"></i></td>
-					</tr>
+<div class="container mx-auto">
+         <div class="col-md-4">
+				<form action="emp" method="post">
+			
+					  <div class="form-group">
+					    <label for="firstName">First name</label>
+					    <input name="firstName" type="text" class="form-control" placeholder="Enter first name">
+					  </div>
+					  <div class="form-group">
+					    <label for="lastName">Last name</label>
+					    <input name="lastName" type="text" class="form-control" placeholder="Enter last name">
+					  </div>
+					  <div class="form-group">
+					    <label for="startDate">Start date</label>
+					    <input name="startDate" type="date" class="form-control" placeholder="Enter start date">
+					  </div>
+					  <button type="submit" class="btn btn-black text-light">Submit</button>
+			
+				</form>
+	</div>
+	</div>
 
-				</c:forEach>
-			</tbody>
-
-		</table>
-	</c:if>
-	<br>
-	<p> ${msg } </p>
-</div>
 
 
 </body>
