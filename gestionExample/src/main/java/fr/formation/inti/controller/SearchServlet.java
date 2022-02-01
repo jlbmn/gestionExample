@@ -37,6 +37,11 @@ public class SearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EmployeeDao edao = new EmployeeDao();
 		String[] n = request.getParameter("searchNames").split(" ");
+		if(n.length!=2) {
+			request.setAttribute("errorMessage", "Please, enter a first name followed by a last name. "
+					+ "<br> Example : John Doe");
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
 		String firstname = n[0], lastName = n[1];
 		edao.beginTransaction();
 		List<Employee> employees = edao.searchByNames(firstname, lastName);

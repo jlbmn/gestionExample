@@ -41,7 +41,7 @@
 		</ul>
 		<form class="form-inline my-2 my-lg-0" action="search" method="post">
 			<input class="form-control mr-sm-2" type="search" name="searchNames"
-				placeholder="Entier first name and last name" aria-label="Search">
+				placeholder="Enter first name and last name" aria-label="Search">
 			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">
 				<i class="bi bi-search"></i>
 			</button>
