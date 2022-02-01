@@ -58,7 +58,7 @@
 <div class="container mx-auto">
          <div class="col-md-4">
          	<h3>Update Employee id = ${emp.empId }</h3>
-				<form action="updatedelete" method="post">
+				<form action="update" method="post">
 				<input type="hidden" name="empId" value="${ emp.empId }"/>
 					  <div class="form-group">
 					    <label for="firstName">First name</label>

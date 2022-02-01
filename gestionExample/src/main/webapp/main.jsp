@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -83,7 +83,7 @@
 						<td>${emp.startDate }</td>
 						
 						<td>
-						<form action="update" method="post">
+						<form action="update" method="get">
 							<input type="hidden" name="empId" value="${ emp.empId }"/>
 							<button type="submit">
 								<i class="bi bi-pencil"></i>
@@ -92,9 +92,9 @@
 						</td>
 						
 						<td>
-						<form action="updatedelete" method="get">
+						<form action="delete" method="get">
 							<input type="hidden" name="empId" value="${ emp.empId }"/>
-							<button type="submit" onclick="confirm('Do you really want to delete this employee ?');">
+							<button type="submit" onclick="return confirm('Do you really want to delete this employee ?');">
 								<i class="bi bi-trash"></i>
 							</button>
 						</form>

@@ -47,7 +47,6 @@ public class EmployeeUpdate extends HttpServlet {
 		Integer empId = Integer.valueOf(request.getParameter("empId"));
 		
 		edao.beginTransaction();
-		// remove employee found by id
 		Employee emp = edao.findById(empId);
 		request.setAttribute("emp", emp);
 		edao.commitTransaction();
@@ -64,7 +63,32 @@ public class EmployeeUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		doGet(request, response);
+		Integer empId = Integer.valueOf(request.getParameter("empId"));
+		String firstName = (String) request.getParameter("firstName");
+		String lastName = (String) request.getParameter("lastName");
+		
+//		String date = (String) request.getParameter("startDate");
+//		SimpleDateFormat formatter = new SimpleDateFormat();  
+//		Date startDate = null;
+//		try {
+//			startDate = formatter.parse(date);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+		
+		edao.beginTransaction();
+		Employee e = edao.findById(empId);
+		e.setFirstName(firstName);
+		e.setLastName(lastName);
+		e.setStartDate(new Date());
+		edao.update(e);
+		edao.commitTransaction();
+		
+		// edao.close();
+		
+		
+		request.setAttribute("msg", "Employee has been updated!");
+		request.getRequestDispatcher("main.jsp").forward(request, response);
 	}
 
 }

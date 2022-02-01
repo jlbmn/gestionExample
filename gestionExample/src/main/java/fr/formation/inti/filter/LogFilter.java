@@ -1,4 +1,4 @@
-package fr.formation.inti.controller;
+package fr.formation.inti.filter;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -15,12 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * Servlet Filter implementation class LogFilter
  */
 @WebFilter("/*")
 public class LogFilter implements Filter {
 	
+	private static final Log log = LogFactory.getLog(LogFilter.class);
 	private ServletContext context ;
 	
     /**
@@ -45,26 +49,29 @@ public class LogFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request ; 
 		HttpServletResponse res = (HttpServletResponse) response;
 		
+		log.debug("------------------------------");
+		
+		
 		HttpSession session = req.getSession(false);
 		
+		log.debug(session == null);
+		
 		String uri = req.getRequestURI();
-		
-		// TODO: resolve filter problem, should not authorize main.jsp without login
-		// TODO: problem with session ==> session is not null, but should be null
-		
+
+		// css is authorized
 		if(uri.endsWith("css")) {
 			chain.doFilter(request, response);
 			return;
 		}
+		
 		// Authorized : login.jsp, index.jsp, /login
 		if(session == null && !(uri.endsWith("login") || uri.endsWith("index.jsp") || uri.endsWith("login.jsp"))) {
 			this.context.log("Unauthorized access, URI : " +uri);
-			res.sendRedirect("index.jsp"); // redirect to main page
+			res.sendRedirect("login.jsp"); // redirect to login page
 			return;
 		} else {
 			this.context.log("Authorized access, URI : " +uri);
 			chain.doFilter(request, response);
-			return;
 		}
 
 	}

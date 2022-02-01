@@ -23,17 +23,16 @@ import fr.formation.inti.entity.Employee;
  * Servlet implementation class UserController
  */
 
-@WebServlet("/updatedelete")
-public class EmployeeUpdateDelete extends HttpServlet {
+@WebServlet("/delete")
+public class EmployeeDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Log log = LogFactory.getLog(EmployeeUpdateDelete.class);
 	private EmployeeDao edao;
 	
 	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EmployeeUpdateDelete() {
+	public EmployeeDelete() {
 		edao = new EmployeeDao();
 	}
 
@@ -64,32 +63,7 @@ public class EmployeeUpdateDelete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		Integer empId = Integer.valueOf(request.getParameter("empId"));
-		String firstName = (String) request.getParameter("firstName");
-		String lastName = (String) request.getParameter("lastName");
-		
-//		String date = (String) request.getParameter("startDate");
-//		SimpleDateFormat formatter = new SimpleDateFormat();  
-//		Date startDate = null;
-//		try {
-//			startDate = formatter.parse(date);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-		
-		edao.beginTransaction();
-		Employee e = edao.findById(empId);
-		e.setFirstName(firstName);
-		e.setLastName(lastName);
-		e.setStartDate(new Date());
-		edao.update(e);
-		edao.commitTransaction();
-		
-		// edao.close();
-		
-		
-		request.setAttribute("msg", "Employee has been updated!");
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+		doGet(request, response);
 		
 	}
 
