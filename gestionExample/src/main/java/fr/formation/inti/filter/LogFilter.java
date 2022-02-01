@@ -72,6 +72,7 @@ public class LogFilter implements Filter {
 		} else {
 			this.context.log("Authorized access, URI : " +uri);
 			chain.doFilter(request, response);
+			return;
 		}
 
 	}
