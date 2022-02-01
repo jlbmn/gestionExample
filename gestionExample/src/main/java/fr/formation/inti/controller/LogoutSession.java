@@ -29,7 +29,7 @@ public class LogoutSession extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		request.setAttribute("msg", "You have been successfully disconnected!");
+		request.setAttribute("logoutMessage", "You have been successfully disconnected!");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

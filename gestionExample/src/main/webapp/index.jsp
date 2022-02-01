@@ -32,7 +32,7 @@
                <a class="btn btn-outline-dark btn-lg" href="login.jsp">Log in <i class="bi bi-box-arrow-in-right"></i></a>
             </div>
             <div><br>
-            	<p class="text-danger">${msg }</p>
+            	<p class="text-danger">${ logoutMessage }</p>
             </div>
          </div>
       </div>

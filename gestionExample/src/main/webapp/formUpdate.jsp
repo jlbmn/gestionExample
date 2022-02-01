@@ -34,7 +34,7 @@
 				id="navbarDropdownMenuLink" data-toggle="dropdown"
 				aria-haspopup="true" aria-expanded="false"> Manage Employees </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="emp"> Add Employee </a> <a
+					<a class="dropdown-item" href="add"> Add Employee </a> <a
 						class="dropdown-item" href="emp"> List of Employees </a>
 				</div></li>
 		</ul>
@@ -57,7 +57,7 @@
 
 <div class="container mx-auto">
          <div class="col-md-4">
-         	<h3>Update Employee id = ${emp.empId }</h3>
+         	<h3>Update Employee : ${emp.firstName } ${emp.lastName }</h3>
 				<form action="update" method="post">
 				<input type="hidden" name="empId" value="${ emp.empId }"/>
 					  <div class="form-group">
@@ -71,6 +71,7 @@
 					  <div class="form-group">
 					    <label for="title">Title</label><br>
 					    <select name="title">
+					    	<option selected="selected">${emp.title }</option>
 					    	<option value="Teller">Teller</option>
 						    <option value="Head Teller">Head Teller</option>
 						    <option value="Loan Manager">Loan Manager</option>

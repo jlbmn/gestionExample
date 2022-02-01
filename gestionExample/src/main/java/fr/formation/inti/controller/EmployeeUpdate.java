@@ -92,7 +92,8 @@ public class EmployeeUpdate extends HttpServlet {
 		
 		
 		request.setAttribute("msg", "Employee has been updated!");
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+		request.getRequestDispatcher("/emp").forward(request, response);
+
 	}
 
 }

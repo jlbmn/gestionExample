@@ -34,7 +34,7 @@
 				id="navbarDropdownMenuLink" data-toggle="dropdown"
 				aria-haspopup="true" aria-expanded="false"> Manage Employees </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="emp"> Add Employee </a> <a
+					<a class="dropdown-item" href="add"> Add Employee </a> <a
 						class="dropdown-item" href="emp"> List of Employees </a>
 				</div></li>
 		</ul>
@@ -57,8 +57,8 @@
 
 <div class="container mx-auto">
          <div class="col-md-4">
-				<form action="emp" method="post">
-			
+				<form action="add" method="post">
+					<h3>Add a new Employee </h3>
 					  <div class="form-group">
 					    <label for="firstName">First name</label>
 					    <input name="firstName" type="text" class="form-control" placeholder="Enter first name">

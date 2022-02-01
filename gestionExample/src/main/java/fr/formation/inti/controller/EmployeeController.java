@@ -56,31 +56,7 @@ public class EmployeeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String firstName = (String) request.getParameter("firstName");
-		String lastName = (String) request.getParameter("lastName");
-		String title = (String) request.getParameter("title");
-		
-		// Get the right format of Date
-		String date = (String) request.getParameter("startDate");
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
-		Date startDate = null;
-		try {
-			startDate = formatter.parse(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		Employee emp = new Employee(firstName, lastName, title, startDate);
-		
-		edao.beginTransaction();
-		edao.save(emp);
-		edao.commitTransaction();
-		
-		// edao.close();
-		
-		request.setAttribute("msg", "Employee has been saved!");
-
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+			doGet(request, response);
 	}
 
 }

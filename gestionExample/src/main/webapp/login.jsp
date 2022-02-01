@@ -26,9 +26,11 @@
             <%= new Date() %>
          </div>
       </div>
+      
       <div class="main">
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
+              <p class="text-danger">${ errorMessage }</p>
                <form action="login" method="post">
                   <div class="form-group">
                      <label>User Name</label>

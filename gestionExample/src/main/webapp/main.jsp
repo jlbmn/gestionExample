@@ -56,6 +56,7 @@
 </nav>
 
 <div class="container-fluid">
+	<p class="text-danger">${ errorMessage }</p>
 	<p class="text-primary mt-2">${msg } </p>
 	<c:if test="${not empty employees }">
 		<br>
