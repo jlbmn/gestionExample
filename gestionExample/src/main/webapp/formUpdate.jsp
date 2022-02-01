@@ -69,6 +69,18 @@
 					    <input name="lastName" type="text" class="form-control" placeholder="Enter last name" value="${emp.lastName }">
 					  </div>
 					  <div class="form-group">
+					    <label for="title">Title</label><br>
+					    <select name="title">
+					    	<option value="Teller">Teller</option>
+						    <option value="Head Teller">Head Teller</option>
+						    <option value="Loan Manager">Loan Manager</option>
+						    <option value="Operations Manager">Operations Manager</option>
+						    <option value="Treasurer">Treasurer</option>
+						    <option value="Vice President">Vice President</option>
+						    <option value="President">President</option>
+					    </select>
+					  </div>
+					  <div class="form-group">
 					    <label for="startDate">Start date</label>
 					    <input name="startDate" type="text" class="form-control" placeholder="Enter start date" value="${emp.startDate }">
 					  </div>

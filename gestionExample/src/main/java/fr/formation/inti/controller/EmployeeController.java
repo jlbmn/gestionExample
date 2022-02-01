@@ -58,6 +58,7 @@ public class EmployeeController extends HttpServlet {
 		
 		String firstName = (String) request.getParameter("firstName");
 		String lastName = (String) request.getParameter("lastName");
+		String title = (String) request.getParameter("title");
 		
 		// Get the right format of Date
 		String date = (String) request.getParameter("startDate");
@@ -69,7 +70,7 @@ public class EmployeeController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		Employee emp = new Employee(firstName, lastName, startDate);
+		Employee emp = new Employee(firstName, lastName, title, startDate);
 		
 		edao.beginTransaction();
 		edao.save(emp);

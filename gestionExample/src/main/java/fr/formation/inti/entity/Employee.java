@@ -58,10 +58,11 @@ public class Employee {
 	// Employee relation manager et subordonnées :
 	// Affichage : l(igne)1 Employee -> Infos / l2 Manager -> / l3 subordo
 
-	public Employee(String firstName, String last_Name, Date startDate) {
+	public Employee(String firstName, String last_Name, String title, Date startDate) {
 		super();
 		this.firstName = firstName;
 		this.lastName = last_Name;
+		this.title = title;
 		this.startDate = startDate;
 	}
 

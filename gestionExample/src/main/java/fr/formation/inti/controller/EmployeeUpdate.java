@@ -66,6 +66,7 @@ public class EmployeeUpdate extends HttpServlet {
 		Integer empId = Integer.valueOf(request.getParameter("empId"));
 		String firstName = (String) request.getParameter("firstName");
 		String lastName = (String) request.getParameter("lastName");
+		String title = (String) request.getParameter("title");
 		
 //		String date = (String) request.getParameter("startDate");
 //		SimpleDateFormat formatter = new SimpleDateFormat();  
@@ -80,6 +81,7 @@ public class EmployeeUpdate extends HttpServlet {
 		Employee e = edao.findById(empId);
 		e.setFirstName(firstName);
 		e.setLastName(lastName);
+		e.setTitle(title);
 		e.setStartDate(new Date());
 		edao.update(e);
 		edao.commitTransaction();
