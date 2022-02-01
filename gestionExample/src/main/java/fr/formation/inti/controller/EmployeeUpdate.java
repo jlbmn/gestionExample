@@ -68,21 +68,23 @@ public class EmployeeUpdate extends HttpServlet {
 		String lastName = (String) request.getParameter("lastName");
 		String title = (String) request.getParameter("title");
 		
-//		String date = (String) request.getParameter("startDate");
-//		SimpleDateFormat formatter = new SimpleDateFormat();  
-//		Date startDate = null;
-//		try {
-//			startDate = formatter.parse(date);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
+		String date = (String) request.getParameter("startDate");
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+		Date startDate = null ;
+		try {
+			startDate = f.parse(date) ;
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		
+		log.debug("startDate ----------> " +startDate);
 		
 		edao.beginTransaction();
 		Employee e = edao.findById(empId);
 		e.setFirstName(firstName);
 		e.setLastName(lastName);
 		e.setTitle(title);
-		e.setStartDate(new Date());
+		e.setStartDate(startDate);
 		edao.update(e);
 		edao.commitTransaction();
 		
