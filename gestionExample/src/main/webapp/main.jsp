@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +82,7 @@
 						<td>${emp.firstName }</td>
 						<td>${emp.lastName }</td>
 						<td>${emp.title }</td>
-						<td>${emp.startDate }</td>
+						<td><fmt:formatDate value="${emp.startDate }" pattern="yyyy-MM-dd"/></td>
 						
 						<td>
 						<form action="update" method="get">

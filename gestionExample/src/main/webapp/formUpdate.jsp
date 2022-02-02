@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +84,8 @@
 					  </div>
 					  <div class="form-group">
 					    <label for="startDate">Start date</label>
-					    <input name="startDate" type="text" class="form-control" placeholder="Enter start date" value="${emp.startDate }">
+					    <input name="startDate" type="text" class="form-control" placeholder="Enter start date" 
+					    value="<fmt:formatDate value="${emp.startDate }" pattern="yyyy-MM-dd"/>">
 					  </div>
 					  <button type="submit" class="btn btn-black text-light">Submit</button>
 			
