@@ -11,5 +11,12 @@
 	<h2> 
 		<s:property value="messageStore.message" />
 	</h2>
+	<hr>
+	<h2>
+		<s:property value="name" />
+	</h2>
+		<h2>
+		<s:property value="personne" />
+	</h2>
 </body>
 </html>

@@ -19,7 +19,21 @@
 
 	<h1><a href="<s:url action='hello'/>"> Hello Struts 2 </a></h1>
 	
-	
+	 <s:form action="hello" method="post">
+      <s:textfield name="messageStore.message" label="First name" />
+      <s:submit value="Envoyer"/>
+    </s:form>	
+    
+   	<s:form action="hello" method="post">
+      <s:textfield name="personne.firstName" label="First name" />
+      <s:textfield name="personne.lastName" label="Last name" />
+      <s:textfield name="personne.title" label="Title" />
+      <s:textfield name="personne.age" label="Age" />
+      <s:textfield type="date" name="personne.birthday"  label="Date of birth"/>
+      <s:submit value="Envoyer"/>
+    </s:form>	
+    
+
 
 </body>
 

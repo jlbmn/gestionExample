@@ -9,7 +9,7 @@ public class MessageStore {
 	private String message ;
 
 	public MessageStore() {
-		message = "Hello Struts 2! ";
+		message = "Message default";
 	}
 
 	public String getMessage() {
