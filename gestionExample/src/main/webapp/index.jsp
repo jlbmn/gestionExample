@@ -1,7 +1,7 @@
 <%@page import="java.util.Date" %>
 <!DOCTYPE html>
 <html lang="fr">
-
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,21 +16,11 @@
 </head>
 
 <body>
-<div class="sidenav">
-         <div class="login-main-text">
-            <h2>Application<br> JAVA EE</h2>
-            <p>Example Servlet.</p>
-            <br>
-            <%= new Date() %>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <h1>Hello Struts 2</h1>
-            </div>
-         </div>
-      </div>
+
+	<h1><a href="<s:url action='hello'/>"> Hello Struts 2 </a></h1>
+	
+	
+
 </body>
 
 </html>
