@@ -27,7 +27,7 @@ public class HibernateUtils {
 	}
 	
 	public static SessionFactory getSessionFacory() {
-		log.debug("creation de la session Facoty");
+		log.debug("creation de la session Factory");
 		return sessionFacory;
 	}
 	

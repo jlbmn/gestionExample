@@ -7,16 +7,13 @@ import fr.formation.inti.model.MessageStore;
 public class HelloStrutsAction extends ActionSupport {
 	
 	private MessageStore messageStore ; 
-	private String name ;
 	private Personne personne ; 
 	
 	@Override
 	public String execute() throws Exception {
-		if(messageStore == null) {
+		if(messageStore == null) 
 			messageStore = new MessageStore();
-		}
-
-		return "success";
+		return SUCCESS;
 	}
 
 	public MessageStore getMessageStore() {
@@ -27,13 +24,6 @@ public class HelloStrutsAction extends ActionSupport {
 		this.messageStore = messageStore;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public Personne getPersonne() {
 		return personne;
@@ -43,7 +33,6 @@ public class HelloStrutsAction extends ActionSupport {
 		this.personne = personne;
 	}
 	
-	
-	
+
 	
 }

@@ -3,20 +3,38 @@
 Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-	<constant name="struts.dev" value="true"></constant>
+
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name = "struts.custom.i18n.resources" value = "global" />
+	
 	
 	<package name="default" namespace="/" extends="struts-default">
-
 	
+	
+
+	      
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
 	
 		<action name="hello" class="fr.formation.inti.action.HelloStrutsAction" method="execute">
+
+			<result name="success"> /helloStruts.jsp </result>
 			
-			<result name="success">/helloStruts.jsp</result>
+			<result name="input" > /index.jsp </result>
+			
 						
 		</action>
+      
+      <action name = "locale" 
+         class = "fr.formation.inti.action.Locale"
+         method = "execute">
+         	
+         	
+			
+         <result name = "success">/index.jsp</result>
+      </action>
+		
 		
 	</package>
 	

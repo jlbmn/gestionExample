@@ -6,9 +6,10 @@ public class Personne {
 	
 	private String firstName;
 	private String lastName;
-	private String title;
 	private Integer age;
+	private String gender;
 	private Date birthday;
+	private String email ; 
 	
 	public String getFirstName() {
 		return firstName;
@@ -22,14 +23,6 @@ public class Personne {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	
 	public Integer getAge() {
 		return age;
 	}
@@ -42,11 +35,26 @@ public class Personne {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	@Override
 	public String toString() {
-		return "Personne [firstName=" + firstName + ", lastName=" + lastName + ", title=" + title + ", age=" + age
-				+ ", birthday=" + birthday + "]";
+		return "Personne [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", gender=" + gender
+				+ ", birthday=" + birthday + ", email=" + email + "]";
 	}
+	
+	
 	
 	
 	
