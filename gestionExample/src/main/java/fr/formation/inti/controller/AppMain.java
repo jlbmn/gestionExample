@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import fr.formation.inti.config.AppConfiguration;
 import fr.formation.inti.entity.Employee;
@@ -28,9 +29,13 @@ public class AppMain {
 //		}
 		
 		// 	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
-		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
+		// ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
 		
-		IEmployeeService service = context.getBean("employeeService", EmployeeService.class);
+		
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		
+		IEmployeeService service = context.getBean("serviceEmployee", EmployeeService.class);
 		log.info("------------- Bean service" +service);
 		List<Employee> employees = service.findAll();
 		

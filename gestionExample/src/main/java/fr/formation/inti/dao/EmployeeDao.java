@@ -16,4 +16,8 @@ public class EmployeeDao extends GenericDaoHibernate<Employee, Integer> implemen
 	public EmployeeDao() {
 		log.info(" ------------ Creating new EmployeeDao()" );
 	}
+	
+	public static EmployeeDao createInstance() {
+		return new EmployeeDao();
+	}
 }
