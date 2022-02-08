@@ -5,10 +5,12 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-	<bean id="daoEmployee" class="fr.formation.inti.dao.EmployeeDao" factory-method="createInstance" />
+	<bean id="daoEmployee" class="fr.formation.inti.dao.EmployeeDao" />
 	
-	<bean id="serviceEmployee" class="fr.formation.inti.service.EmployeeService">
-		<property name="dao" ref="daoEmployee"></property>
+	<bean id="serviceEmployee" class="fr.formation.inti.service.EmployeeService" scope="singleton">
+<!-- 		<property name="dao" ref="daoEmployee"></property> -->
+		<constructor-arg name="dao" ref="daoEmployee"/>
+		
 	</bean>
 	
 </beans>

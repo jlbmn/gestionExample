@@ -29,22 +29,26 @@ public class AppMain {
 //		}
 		
 		// 	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
-		// ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
+		//ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
 		
 		
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		// ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		
-		IEmployeeService service = context.getBean("serviceEmployee", EmployeeService.class);
+		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
+
+		IEmployeeService service = context.getBean("employeeService", EmployeeService.class);
 		log.info("------------- Bean service" +service);
 		List<Employee> employees = service.findAll();
-		
+
 		for(Employee e : employees) {
 			log.info("-------------"+e);
 		}
-		
-		
+
+
 		context.close();
+		
+		
 		
 		
 	}
