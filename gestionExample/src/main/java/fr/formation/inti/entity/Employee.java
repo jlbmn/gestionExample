@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "employee")
@@ -22,10 +24,15 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "emp_id")
 	private int empId;
+	
 	@Column(name = "first_name")
+//	@Size(min=1,message="required")
 	private String firstName;
+	
 	@Column(name = "last_name")
+//	@Size(min=1,message="required")
 	private String lastName;
+	
 	@Column(name = "start_date")
 	private Date startDate;
 	
@@ -150,6 +157,7 @@ public class Employee {
 
 	public Employee() {
 		super();
+		System.out.println("Employe()");
 	}
 
 }

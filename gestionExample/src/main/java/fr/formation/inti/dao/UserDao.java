@@ -1,9 +1,11 @@
 package fr.formation.inti.dao;
 
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Service;
 
 import fr.formation.inti.entity.User;
 
+@Service("userDao")
 public class UserDao extends GenericDaoHibernate<User, Integer> implements IUserDao {
 
 	public User findByLoginAndPassword(String login, String password) {

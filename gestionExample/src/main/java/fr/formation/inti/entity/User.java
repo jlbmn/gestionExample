@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 //Table base de donnée   T_User
 @Entity
@@ -17,7 +19,11 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_user")
 	private Integer userId;
+	@NotNull
+	@Min(2)
 	private String login;
+	@NotNull
+	@Min(2)
 	private String password;
 	@OneToOne
 	@JoinColumn(name = "emp_id", nullable = false)
