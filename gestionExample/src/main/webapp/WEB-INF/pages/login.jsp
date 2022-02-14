@@ -40,10 +40,12 @@
                   <div class="form-group">
                      <label><spring:message code="label.username"/></label>
                      <input type="text" class="form-control" placeholder="<spring:message code="label.username"/>" name="login">
+                     <form:errors path="login" cssClass="errorblock" element="div" />
                   </div>
                   <div class="form-group">
                      <label><spring:message code="label.password"/></label>
                      <input type="password" class="form-control" placeholder="<spring:message code="label.password"/>" name="password">
+                     <form:errors path="password" cssClass="errorblock" element="div" />
                   </div>
                   <button type="submit" class="btn btn-black"><spring:message code="label.login"/></button>
                   <button type="submit" class="btn btn-secondary"><spring:message code="label.register"/></button>

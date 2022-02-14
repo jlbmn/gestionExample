@@ -9,7 +9,7 @@
 <title>Home page</title>
 </head>
 <body>
-     <a href="?lang=en" class="btn btn-sm btn-success">English</a> <a href="?lang=fr" class="btn btn-sm btn-success">French</a>
+     <a href="${pageContext.request.contextPath}/home?lang=en" class="btn btn-sm btn-success">English</a> <a href="${pageContext.request.contextPath}/home?lang=fr" class="btn btn-sm btn-success">French</a>
 
 	<h2><spring:message code="label.heading"/></h2>
 	<h2><spring:message code="label.title"/></h2>
